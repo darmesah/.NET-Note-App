@@ -1,0 +1,37 @@
+﻿@model Note
+
+<form method="post">
+	@*<input asp-for="Id" hidden />*@
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Edit Note</h2>
+			<hr />
+		</div>
+		@*<div asp-validation-summary="All">*@
+		<div class="mb-3 row p-1">
+			<label asp-for="Title"></label>
+			<input asp-for="Title" class="form-control" />
+			<span asp-validation-for="Title" class="text-danger"></span>
+		</div>		
+		<div class="mb-3 row p-1">
+			<label asp-for="Content"></label>
+			<textarea asp-for="Content" class="form-control" rows="6"> </textarea>
+			<span asp-validation-for="Content" class="text-danger"></span>
+		</div>
+		<input asp-for="UserId" hidden />
+		<div class="row mt-4">
+			<div class="col-6 col-md-3">
+				<button type="submit" class="btn py-2 btn-primary form-control">Update</button>
+			</div>
+			<div class="col-6 col-md-3">
+				<a asp-action="." asp-route-id="@Model.Id" class="btn py-2 btn-secondary border form-control">Back to Note</a>
+			</div>
+		</div>
+	</div>
+</form>
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

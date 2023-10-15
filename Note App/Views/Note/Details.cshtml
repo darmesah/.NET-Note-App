@@ -1,0 +1,17 @@
+﻿@model Note
+
+<div>
+    @if (Model != null)
+    {
+        <h1 class="mt-5 pt-5">@Model.Title</h1>
+        <p class="py-4">@Model.Content</p>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn py-2 btn-outline-info">Edit</a>
+            <a class="btn py-2 btn-outline-danger">Delete</a>
+        </div>
+    }
+    else
+    {
+        <p>Note not found.</p>
+    }
+</div>
